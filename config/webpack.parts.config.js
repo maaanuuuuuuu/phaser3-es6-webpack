@@ -37,12 +37,8 @@ exports.loadJs = ({ babelOptions }) => ({
         ],
       },
       {
-        test: /pixi\.js/,
-        use: ['expose-loader?PIXI'],
-      },
-      {
-        test: /phaser-arcade-physics\.js/,
-        use: ['expose-loader?Phaser'],
+        test: [/\.vert$/, /\.frag$/],
+        use: 'raw-loader',
       },
     ],
   },

@@ -1,3 +1,4 @@
+import Phaser from 'phaser'
 import { SCENE_GAME } from '../constants/Constants'
 
 export default class GameScene extends Phaser.Scene {
@@ -5,15 +6,11 @@ export default class GameScene extends Phaser.Scene {
     super(SCENE_GAME)
   }
 
-  create () {
-    this.mushroom = this.add.sprite(
-      this.game.config.width / 2,
-      this.game.config.height / 2,
-      'mushroom'
-    )
+  create = () => {
+    this.mushroom = this.add.sprite(10, 10, 'mushroom')
   }
 
-  update () {
+  update = () => {
     this.mushroom.angle++
   }
 }

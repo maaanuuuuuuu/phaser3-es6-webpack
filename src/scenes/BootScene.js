@@ -1,3 +1,4 @@
+import Phaser from 'phaser'
 import { SCENE_BOOT, SCENE_GAME } from '../constants/Constants'
 
 export default class BootScene extends Phaser.Scene {
@@ -5,11 +6,11 @@ export default class BootScene extends Phaser.Scene {
     super(SCENE_BOOT)
   }
 
-  preload () {
+  preload = () => {
     this.load.image('mushroom', 'assets/mushroom.png')
   }
 
-  create () {
+  create = () => {
     this.scene.start(SCENE_GAME)
   }
 }
