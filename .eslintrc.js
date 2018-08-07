@@ -1,36 +1,25 @@
-const settings = {
+// https://eslint.org/docs/user-guide/configuring
+
+module.exports = {
+  root: true,
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module'
+  },
   env: {
     browser: true,
-    jquery: true,
   },
-  parser: 'babel-eslint',
+  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
-  plugins: ['import'],
-  settings: {
-    'import/parser': 'babel-eslint',
-    'import/resolver': {
-      webpack: {
-        config: 'config/webpack.config.js',
-      },
-    },
-  },
-  globals: {
-    NODE_ENV: true,
-  },
+  // required to lint *.vue files
+  plugins: [
+    'html'
+  ],
+  // add your custom rules here
   rules: {
-    'comma-dangle': [
-      'error',
-      {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'always-multiline',
-      },
-    ],
-    'no-fallthrough': ['error', { commentPattern: 'break[\\s\\w]*omitted' }],
-    'standard/computed-property-even-spacing': 0,
-  },
+    // allow async-await
+    'generator-star-spacing': 'off',
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  }
 }
-
-module.exports = settings
