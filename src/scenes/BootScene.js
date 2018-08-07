@@ -1,9 +1,8 @@
 import Phaser from 'phaser'
-import { SCENE_BOOT, SCENE_GAME } from '../constants/Constants'
 
 export default class BootScene extends Phaser.Scene {
   constructor () {
-    super(SCENE_BOOT)
+    super('boot')
   }
 
   preload = () => {
@@ -11,6 +10,10 @@ export default class BootScene extends Phaser.Scene {
   }
 
   create = () => {
-    this.scene.start(SCENE_GAME)
+    this.mushroom = this.add.sprite(100, 100, 'mushroom')
+  }
+
+  update = () => {
+    this.mushroom.angle++
   }
 }
