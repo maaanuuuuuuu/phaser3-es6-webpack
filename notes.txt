@@ -1,0 +1,10 @@
+.LOG
+19:39 07/08/2018
+idéalement comment on lance un level
+un level est composé d'un personnage jouable
+d'une architecture
+
+donc au preload d'une scene on créé un level et une archi
+
+
+12:18 08/08/2018

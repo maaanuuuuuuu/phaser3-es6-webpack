@@ -1,21 +1,24 @@
-const settings = {
-  env: {
-    browser: false,
-    node: true,
-  },
-  extends: 'standard',
-  rules: {
-    'comma-dangle': [
-      'error',
-      {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'always-multiline',
-      },
-    ],
-  },
-}
+// https://eslint.org/docs/user-guide/configuring
 
-module.exports = settings
+module.exports = {
+  root: true,
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module'
+  },
+  env: {
+    browser: true,
+  },
+  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+  extends: 'standard',
+  plugins: [
+    'html'
+  ],
+  // add your custom rules here
+  rules: {
+    // allow async-await
+    'generator-star-spacing': 'off',
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  }
+}
